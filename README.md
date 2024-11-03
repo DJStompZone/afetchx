@@ -14,7 +14,13 @@ Asynchronously fetch image URLs using httpx.
 
 [![PyPI - Wheel](https://img.shields.io/pypi/wheel/afetchx)](https://pypi.org/projects/afetchx)
 
-[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDcuNTAwMDE1MjU4Nzg5MDYiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAyMDcuNTAwMDE1MjU4Nzg5MDYgMzUiPjxyZWN0IHdpZHRoPSIxMDkuNzAxNzEzNTYyMDExNzIiIGhlaWdodD0iMzUiIGZpbGw9IiNmY2U0YmQiLz48cmVjdCB4PSIxMDkuNzAxNzEzNTYyMDExNzIiIHdpZHRoPSI5Ny43OTgzMDE2OTY3NzczNCIgaGVpZ2h0PSIzNSIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IHg9IjU0Ljg1MDg1Njc4MTAwNTg2IiB5PSIyMS41IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iJ1JvYm90bycsIHNhbnMtc2VyaWYiIGZpbGw9IiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIyIj5QSVAgSU5TVEFMTDwvdGV4dD48dGV4dCB4PSIxNTguNjAwODY0NDEwNDAwNCIgeT0iMjEuNSIgZm9udC1zaXplPSIxMiIgZm9udC1mYW1pbHk9IidNb250c2VycmF0Jywgc2Fucy1zZXJpZiIgZmlsbD0iI2U4YjY2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjkwMCIgbGV0dGVyLXNwYWNpbmc9IjIiPkFGRVRDSFg8L3RleHQ+PC9zdmc+)](https://pypi.org/projects/afetchx)
+## Installation
+
+<a href="https://pypi.org/projects/afetchx"><img src="https://github.com/user-attachments/assets/471667e2-bd29-47b0-b414-055c21740040" height="30px"></a>
+
+Or
+
+<a href="https://github.com/DJStompZone/afetchx/archive/refs/heads/master.zip"><img src="https://github.com/user-attachments/assets/86df3959-e061-4e18-9603-3fa805b4a31e" height="30px"></a>
 
 ## Usage
 

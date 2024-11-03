@@ -1,6 +1,6 @@
 <div align="center">
   <h1>afetchx</h1>
-<img src="https://github.com/user-attachments/assets/8539b847-9bfd-4388-ac8b-384d64281d8a" width="40%">
+<img src="https://github.com/user-attachments/assets/03acef7f-9489-49bb-baa2-441846b284d2" width="40%">
   <h3>Asynchronously fetch image URLs using httpx.</h3>
 </div>
 

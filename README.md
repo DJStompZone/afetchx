@@ -1,6 +1,12 @@
-# afetchx
+<div align="center">
+  <h1>afetchx</h1>
+<img src="https://github.com/user-attachments/assets/8539b847-9bfd-4388-ac8b-384d64281d8a" width="40%">
+  <h3>Asynchronously fetch image URLs using httpx.</h3>
+</div>
 
-Asynchronously fetch image URLs using httpx.
+<hr>
+
+## Overview
 
 `afetchx` parses command-line arguments to determine the list of image URLs to fetch, the maximum number of concurrent connections, the cooldown time between requests, an optional JSON file containing URLs, and output options. It then fetches the images, saves them in the specified output directory, and prints the number of successfully downloaded images.
 

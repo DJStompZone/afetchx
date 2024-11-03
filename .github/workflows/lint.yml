@@ -38,10 +38,21 @@ jobs:
         continue-on-error: true
         id: pylint
         shell: bash
+        env:
+          CHANGED_FILES: ${{ steps.changed_files.outputs.changed_files }}
         run: |
           shopt -s globstar
-          { pylint ${changed_files} --output-format=json:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
-
+          FILES=${CHANGED_FILES:-'**/*.py'}
+          echo "Linting files: $FILES"
+      
+          # Run pylint and output to JSON file
+          pylint $FILES --output-format=json > pylint.json
+          TASK_EXIT_CODE=$?
+      
+          # Also output to text file for summary
+          pylint $FILES > pylint.txt
+      
+          # Append to summary
           {
             echo "## Pylint"
             echo "<details><summary>Click to expand</summary>"
@@ -51,8 +62,9 @@ jobs:
             echo '```'
             echo "</details>"
           } >> $GITHUB_STEP_SUMMARY
-
+      
           echo "exitcode=$TASK_EXIT_CODE" >> $GITHUB_OUTPUT
+
 
       - name: Annotate Commit with Pylint Results
         uses: karpikpl/pylint-annotation-action@v1.0.1

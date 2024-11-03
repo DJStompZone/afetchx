@@ -2,6 +2,7 @@ __pycache__/
 poetry_cache/
 *.pyc
 *.pyo
+.pytest_cache/
 
 *.env
 venv/

@@ -7,13 +7,17 @@ from afetchx.__main__ import fetch_images_async, load_urls_from_json
 
 TEST_URLS = ["https://unsplash.it/256.jpg", "https://unsplash.it/512.jpg"]
 
+# pylint: disable=redefined-outer-name
+# pylint: disable=line-too-long
+# pylint: disable=unnecessary-lambda-assignment
+
 @pytest.fixture
 def setup_json_file(tmp_path):
     """Fixture to create a test JSON file in a temporary directory."""
     jsonfile = tmp_path / "test_urls.json"
     with open(jsonfile, "w", encoding="utf-8") as f:
         json.dump(TEST_URLS, f)
-    return jsonfile  # Return the path to the JSON file
+    return jsonfile
 
 @pytest.mark.asyncio
 async def test_fetch_images_async_basic(tmp_path):

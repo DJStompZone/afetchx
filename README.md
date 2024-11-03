@@ -21,7 +21,7 @@ python -m afetchx {args}
 - `--filename-format`: Lambda function as a string to format filenames based on the URL (e.g., `"lambda url: url.split('/')[-1].split('.')[0] + '.png'"`).
 - `urls`: List of image URLs to fetch (positional arguments).
 
-### *Note*: You must satisfy exactly one of the following conditions:
+### *Note*: You must satisfy exactly one of the following conditions
 
 1. Use the `--json` (`-j`) argument to specify a JSON file containing URLs.
 2. Provide one or more URLs directly as positional arguments.

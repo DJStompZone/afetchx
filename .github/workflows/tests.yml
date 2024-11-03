@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -16,24 +15,28 @@ jobs:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install pylint pytest poetry
-        pip install .
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pylint pytest poetry
+          pip install .
 
-    - name: Lint with pylint
-      run: |
-        # Run pylint on all .py files in the project
-        pylint **/*.py
+      - name: Lint with Pylint and Annotate
+        if: matrix.python-version == '3.10'
+        uses: reviewdog/action-pylint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-check  # Use GitHub Checks API for annotations
+          level: warning          # Set the annotation level
+          pylint_flags: ''        # Add any Pylint flags if needed
+          pylint_targets: './'    # Target directory or files to lint
 
-    - name: Test with pytest
-      run: |
-        pytest
+      - name: Test with pytest
+        run: pytest

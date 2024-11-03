@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -35,7 +39,8 @@ jobs:
         id: pylint
         shell: bash
         run: |
-          { pylint ${{ steps.changed_files.outputs.changed_files || '**/*.py' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
+          shopt -s globstar
+          { pylint ${changed_files} --output-format=json:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
 
           {
             echo "## Pylint"
@@ -51,7 +56,6 @@ jobs:
 
       - name: Annotate Commit with Pylint Results
         uses: karpikpl/pylint-annotation-action@v1.0.1
-        id: pylint-annotation
         with:
           head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
           lint-file: pylint.json

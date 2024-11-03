@@ -198,3 +198,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# This was added to trigger the pylint workflow

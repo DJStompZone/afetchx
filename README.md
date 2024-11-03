@@ -4,6 +4,18 @@ Asynchronously fetch image URLs using httpx.
 
 `afetchx` parses command-line arguments to determine the list of image URLs to fetch, the maximum number of concurrent connections, the cooldown time between requests, an optional JSON file containing URLs, and output options. It then fetches the images, saves them in the specified output directory, and prints the number of successfully downloaded images.
 
+[![Python Versions](https://img.shields.io/pypi/pyversions/afetchx)](https://github.com/DJStompZone/afetchx/releases/latest)
+
+[![Python Versions](https://img.shields.io/badge/python%203.13-yes%20✅-blue)](https://github.com/DJStompZone/afetchx/releases/latest)
+
+[![Tested on Py3.10+](https://github.com/DJStompZone/afetchx/actions/workflows/tests.yml/badge.svg)](https://github.com/DJStompZone/afetchx/actions/workflows/tests.yml)
+
+[![Code Size](https://img.shields.io/github/languages/code-size/djstompzone/afetchx)](https://github.com/djstompzone/afetchx/releases/latest)
+
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/afetchx)](https://pypi.org/projects/afetchx)
+
+[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDcuNTAwMDE1MjU4Nzg5MDYiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAyMDcuNTAwMDE1MjU4Nzg5MDYgMzUiPjxyZWN0IHdpZHRoPSIxMDkuNzAxNzEzNTYyMDExNzIiIGhlaWdodD0iMzUiIGZpbGw9IiNmY2U0YmQiLz48cmVjdCB4PSIxMDkuNzAxNzEzNTYyMDExNzIiIHdpZHRoPSI5Ny43OTgzMDE2OTY3NzczNCIgaGVpZ2h0PSIzNSIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IHg9IjU0Ljg1MDg1Njc4MTAwNTg2IiB5PSIyMS41IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iJ1JvYm90bycsIHNhbnMtc2VyaWYiIGZpbGw9IiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIyIj5QSVAgSU5TVEFMTDwvdGV4dD48dGV4dCB4PSIxNTguNjAwODY0NDEwNDAwNCIgeT0iMjEuNSIgZm9udC1zaXplPSIxMiIgZm9udC1mYW1pbHk9IidNb250c2VycmF0Jywgc2Fucy1zZXJpZiIgZmlsbD0iI2U4YjY2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjkwMCIgbGV0dGVyLXNwYWNpbmc9IjIiPkFGRVRDSFg8L3RleHQ+PC9zdmc+)](https://pypi.org/projects/afetchx)
+
 ## Usage
 
 Invoke the script with

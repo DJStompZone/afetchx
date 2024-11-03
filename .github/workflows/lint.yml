@@ -1,0 +1,55 @@
+name: Lint with Pylint
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Changed Files
+        id: changed_files
+        uses: karpikpl/sample-action@main
+        with:
+          file-filter: '*.py'
+  
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+          
+      - name: Update pip
+        shell: bash
+        run: |
+          pip install --upgrade pip
+          pip install pylint
+  
+      - name: Run Pylint
+        continue-on-error: true
+        id: pylint
+        shell: bash
+        run: |
+          { pylint ${{ steps.changed_files.outputs.changed_files || '**/*.py' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
+  
+          {
+            echo "## Pylint"
+            echo "<details><summary>Click to expand</summary>"
+            echo ""
+            echo '```'
+            cat pylint.txt
+            echo '```'
+            echo "</details>"
+          } >> $GITHUB_STEP_SUMMARY
+  
+          echo "exitcode=$TASK_EXIT_CODE" >> $GITHUB_OUTPUT
+  
+      - name: Annotate Commit with Pylint Results
+        uses: karpikpl/pylint-annotation-action@v1.0.1
+        id: pylint-annotation
+        with:
+          head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
+          lint-file: pylint.json
+          pylint-result-code: ${{ steps.pylint.outputs.exitcode }}

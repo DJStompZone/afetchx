@@ -49,8 +49,9 @@ jobs:
           pylint $FILES --output-format=json > pylint.json
           TASK_EXIT_CODE=$?
       
-          # Also output to text file for summary
-          pylint $FILES > pylint.txt
+          # Use jq to extract messages for summary
+          pip install jq
+          jq -r '.[] | "\(.path):\(.line):\(.column): \(.message-id): \(.message)"' pylint.json > pylint.txt
       
           # Append to summary
           {
@@ -64,7 +65,6 @@ jobs:
           } >> $GITHUB_STEP_SUMMARY
       
           echo "exitcode=$TASK_EXIT_CODE" >> $GITHUB_OUTPUT
-
 
       - name: Annotate Commit with Pylint Results
         uses: karpikpl/pylint-annotation-action@v1.0.1
